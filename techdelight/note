@@ -1,7 +1,6 @@
 1.test
 #Personal access tokens
     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
-    test
 curl -u ratikantapanda:Litu@2010 https://api.github.com/user
 
 
