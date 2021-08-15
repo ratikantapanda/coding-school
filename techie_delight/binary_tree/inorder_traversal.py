@@ -5,11 +5,32 @@ class Node:
         self.right = right
 
 def inorder_r(root):
+    result = []
+    _inorder_r(root,result)
+    return result
+
+def _inorder_r(root,result):
     if root is None:
         return
-    inorder_r(root.left)
-    print(root.data, end=' ')
-    inorder_r(root.right)
+    _inorder_r(root.left,result)
+    #print(root.data, end=' ')
+    result.append(root.data)
+    _inorder_r(root.right,result)
+
+
+def inorder(root):
+    result = []
+    stack = []
+    while root != None or len(stack) != 0:
+        if root != None:
+            stack.append(root)
+            root = root.left
+        else:
+            root = stack.pop()
+            result.append(root.data)
+            root = root.right
+    return result
+
 
 
 if __name__ == '__main__':
@@ -34,5 +55,8 @@ if __name__ == '__main__':
     root.right.right = Node(6)
     root.right.left.left = Node(7)
     root.right.left.right = Node(8)
-
-    inorder_r(root)
+    result= inorder_r(root)
+    print(result)
+    print()
+    result = inorder(root)
+    print(result)
