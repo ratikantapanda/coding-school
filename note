@@ -1,0 +1,8 @@
+# to delete file and directories using find command
+    find .  -name venv  -delete
+    find .  -name venv -exec rm -r {} +
+    or use xargs
+
+# list all files other than .py extention
+    find . ! '(' -name '*.txt' -o -name '*.pdf' ')'
+    find . ! -name '*.py'
